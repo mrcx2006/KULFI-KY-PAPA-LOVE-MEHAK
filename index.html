@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mehak 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  height:100vh;
+  background:radial-gradient(circle at top,#fde2e4,#f6c1cc);
+  font-family:'Quicksand',sans-serif;
+  overflow:hidden;
+}
+
+/* background hearts */
+.bg-heart{
+  position:absolute;
+  bottom:-40px;
+  font-size:16px;
+  opacity:.6;
+  animation:float 10s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(0) scale(.8)}
+  to{transform:translateY(-110vh) scale(1.4)}
+}
+
+/* container */
+.container{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+
+.card{
+  background:#fff;
+  padding:36px 26px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.2);
+  max-width:400px;
+  width:90%;
+  animation:fadeIn 1s ease;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+h1,h2{
+  font-family:'Nunito',sans-serif;
+  color:#c9184a;
+  margin-bottom:10px;
+}
+
+p{
+  font-size:17px;
+  line-height:1.65;
+  color:#333;
+}
+
+button{
+  margin-top:24px;
+  padding:13px 34px;
+  border-radius:35px;
+  border:none;
+  background:#c9184a;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.buttons{
+  position:relative;
+  height:120px;
+  margin-top:30px;
+}
+
+#no{
+  position:absolute;
+  background:#eee;
+  color:#333;
+}
+
+/* kitten animation */
+.kitten{
+  font-size:48px;
+  animation:bounce 1.5s infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/11/21/audio_9c4c0e1f79.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+for(let i=0;i<35;i++){
+  const h=document.createElement("div");
+  h.className="bg-heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(6+Math.random()*6)+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+<div class="container">
+  <div class="card" id="page">
+
+    <!-- PAGE 1 -->
+    <div>
+      <div class="kitten">🐱💋🐱</div>
+      <h1>❤️ MEHAK ❤️</h1>
+      <p>
+        This little world was made only for you.  
+        Take a breath… and tap once 💗
+      </p>
+      <button onclick="start()">LOTUS ➜ 🤤</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function start(){
+  const m=document.getElementById("music");
+  m.volume=0.8;
+  m.play();
+
+  document.getElementById("page").innerHTML=`
+    <div class="kitten">🐾🐱🐾</div>
+    <h2>Kulfi ki Mama 🩶</h2>
+    <p>
+      Soft. Calm. Sneaky cute.  
+      That’s you… and somehow also chaos 😌
+    </p>
+    <button onclick="next1()">Continue →</button>
+  `;
+}
+
+function next1(){
+  document.getElementById("page").innerHTML=`
+    <h2>Or han baat suno…</h2>
+    <p>
+      I love the sound you make on call before sleeping,  
+      that calm little music before sleep 🌙  
+      Such a good gurl you are bas darti bohat ho...mighty monster 😈
+    </p>
+    <p style="font-size:13px;color:#888">
+      (you really are special to me)
+    </p>
+    <button onclick="next2()">Okay… one more →</button>
+  `;
+}
+
+function next2(){
+  document.getElementById("page").innerHTML=`
+    <h2>Now tell me 💕</h2>
+    <p>
+      Will you be my Valentine?  
+      Not just for a day — but always.
+    </p>
+    <div class="buttons">
+      <button onclick="yes()">OH YES DADDY 💖</button>
+      <button id="no" onmouseover="run()">UMMM NO 🙃</button>
+    </div>
+  `;
+}
+
+function run(){
+  const n=document.getElementById("no");
+  n.style.left=Math.random()*240+"px";
+  n.style.top=Math.random()*80+"px";
+}
+
+function yes(){
+  document.getElementById("page").innerHTML=`
+    <h1>😌 I knew it.</h1>
+    <p>
+      You were always my Valentine.  
+      Today, tomorrow, every version of us ❤️
+      Milo mujy phir batau ga 😼
+    </p>
+    <div class="kitten">🐱💖🐱</div>
+  `;
+}
+</script>
+
+</body>
+</html>
